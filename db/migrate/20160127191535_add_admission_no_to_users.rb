@@ -1,5 +1,5 @@
 class AddAdmissionNoToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :admission_no, :string
+    add_coloumn :users, :contact_no,:integer
   end
 end
