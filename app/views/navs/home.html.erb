@@ -26,6 +26,7 @@ function not_signed_in()
         <div class="col s1">11</div>
         <div class="col s1">12</div>
     </div> -->
+    <%=Budget.last.id%>
     <div class="center">
     <%if user_signed_in? %>
     You are signed in as <%= current_user.email %>

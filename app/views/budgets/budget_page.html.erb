@@ -1,0 +1,26 @@
+<div class="container">
+<h1>Navs#blog</h1>
+<p>Find me in app/views/navs/blog.html.erb</p>
+<%= form_for Budget.new do |f| %>
+   <div class="field">
+    <%= f.label :from_date, "From Date" %><br>
+    <%= f.date_field :from_date %>
+  </div>
+  <div class="field">
+    <%= f.label :to_date , "Upto" %><br>
+    <%= f.date_field :to_date %>
+  </div><div class="field">
+    <%= f.label :from, "Enter Origin" %><br>
+    <%= f.text_field :from %>
+  </div><div class="field">
+    <%= f.label :to, "Enter Destination" %><br>
+    <%= f.text_field :to %>
+  </div><div class="field">
+    <%= f.label :budgetprice, "Enter your budget amount" %><br>
+    <%= f.text_field :budgetprice %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

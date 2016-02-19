@@ -11,11 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219163832) do
+ActiveRecord::Schema.define(version: 20160219192257) do
+
+  create_table "budgets", force: :cascade do |t|
+    t.string   "current_email"
+    t.string   "from"
+    t.string   "to"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.integer  "budgetprice"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "follows", force: :cascade do |t|
     t.string   "email"
     t.integer  "notif_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hotels", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,6 +46,14 @@ ActiveRecord::Schema.define(version: 20160219163832) do
     t.string   "abstract"
     t.string   "description"
     t.string   "tag"
+  end
+
+  create_table "travels", force: :cascade do |t|
+    t.string   "from"
+    t.string   "to"
+    t.string   "fare"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160219163832) do
     t.string   "name"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "admission_no"
     t.string   "contact_no"
   end
 

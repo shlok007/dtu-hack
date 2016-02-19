@@ -5,6 +5,7 @@ class NavsController < ApplicationController
   end
 
   def blog
+    Budget.create[:params_id]
   end
 
   def about_us

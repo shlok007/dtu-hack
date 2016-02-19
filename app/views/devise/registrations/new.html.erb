@@ -1,17 +1,24 @@
-<div class="container">
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Sign-up Page</title>
+<h1 style="font-family:MV Boli;">Just one more step to join us</h1>
+<div class="row">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "col s12"}) do |f| %>
   <%= devise_error_messages! %>
-
- <div class="field">
+      <div class="row">
+        <div class="input-field col s6">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true %>
-  </div>
-  <div class="field">
+        </div>
+        <div class="input-field col s6">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: true %>
-  </div>
+       </div>
+       </div>
   <div class="field">
     <%= f.label :contact_no %><br />
     <%= f.text_field :contact_no, autofocus: true %>
@@ -23,7 +30,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>  (<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
@@ -37,6 +44,8 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
 </div>
+</head>
+
+</html>
