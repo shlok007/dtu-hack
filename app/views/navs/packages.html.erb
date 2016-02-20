@@ -1,3 +1,5 @@
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <%pr=Budget.last.budgetprice %>
 <%i=1%>
 <%tfare=0%>
@@ -12,7 +14,7 @@
   <%tfare=Travel.find(i).fare.to_i*2+Hotel.find(hot[j]).price.to_i*(Budget.last.to_date-Budget.last.from_date).to_i%>
   <%if tfare<=pr %>
         <div class="col s12 m6">
-          <div class="card white darken-1">
+          <div class="card" style="color:white;background-color:#8BC34A;">
             <div class="card-content">
               <span class="card-title black-text">Travelling by <b><%= Travel.find(i).name%></b> and staying at <b><%= Hotel.find(hot[j]).name%></b></span>
               <p class="black-text"><b><%=(Budget.last.to_date-Budget.last.from_date).to_i%></b> days stay with Rs. <b><%=tfare/(Budget.last.to_date-Budget.last.from_date).to_i%></b> per day.</p>
@@ -23,6 +25,8 @@
               <p>Total Expense: <b><%=tfare%></b></p>
               <br />
               <p><b>Savings: <%=pr-tfare%></b></p>
+               <i class="small material-icons">thumb_up</i>&nbsp;&nbsp;&nbsp;&nbsp;
+              <i class="small material-icons">thumb_down</i>
             </div>
             <div class="card-action">
               <a href="#">Continue with this Package!</a>
@@ -45,8 +49,8 @@
 <% tfare=Travel.find(j).fare.to_i*2+Hotel.find(hot[i]).price.to_i*(Budget.last.to_date-Budget.last.from_date).to_i%>
 <%if tfare<pr %>
         <div class="col s12 m6">
-          <div class="card white darken-1">
-            <div class="card-content white-text">
+           <div class="card" style="color:white;background-color:#2196F3;">
+            <div class="card-content black-text">
               <span class="card-title black-text">Travelling by <b><%=Travel.find(j).name%></b> and staying at <b><%= Hotel.find(hot[i]).name%></b></span>
               <p class="black-text"><b><%=(Budget.last.to_date-Budget.last.from_date).to_i%></b> days stay with Rs. <b><%=tfare/(Budget.last.to_date-Budget.last.from_date).to_i%></b> per day.</p>
               <br />
@@ -56,9 +60,12 @@
               <p class="black-text">Total Expense: <b><%=tfare%></b></p>
               <br />
               <p class="black-text"><b>Savings: <%=pr-tfare%></b></p>
+                             <i class="small material-icons">thumb_up</i>&nbsp;&nbsp;&nbsp;&nbsp;
+              <i class="small material-icons">thumb_down</i>
             </div>
             <div class="card-action">
               <a href="">Continue with this Package!</a>
+
           </div>
         </div>
         </div>
