@@ -3,22 +3,22 @@
 <%tfare=0%>
 <%hot=Hotel.where(city: Budget.last.to).ids%>
 <%j=hot.length-1%>
-<h2>Luxurious Travel Packages</h2>
+<h2 style="font-family:MV Boli;">Luxurious Travel Packages</h2>
 <hr />
   <div class="row">
 <%while i<=Travel.count%>
 <%j=hot.length-1%>
   <%while j>=0 %>
-  <%tfare=Travel.find(i).fare.to_i*2+Hotel.find(hot[j]).price.to_i%>
+  <%tfare=Travel.find(i).fare.to_i*2+Hotel.find(hot[j]).price.to_i*(Budget.last.to_date-Budget.last.from_date).to_i%>
   <%if tfare<=pr %>
         <div class="col s12 m6">
           <div class="card white darken-1">
             <div class="card-content">
               <span class="card-title black-text">Travelling by <b><%= Travel.find(i).name%></b> and staying at <b><%= Hotel.find(hot[j]).name%></b></span>
-              <p class="black-text"><b>50</b> days stay with Rs. <b><%=j%></b> per day.</p>
+              <p class="black-text"><b><%=(Budget.last.to_date-Budget.last.from_date).to_i%></b> days stay with Rs. <b><%=tfare/(Budget.last.to_date-Budget.last.from_date).to_i%></b> per day.</p>
               <br />
               <p>Amount spent on Travelling Rs.<%=Travel.find(i).fare.to_i*2%></p>
-              <p>Amount spent on Hotel Bookings Rs.<%=Hotel.find(hot[j]).price.to_i%></p>
+              <p>Amount spent on Hotel Bookings Rs.<%=Hotel.find(hot[j]).price.to_i*(Budget.last.to_date-Budget.last.from_date).to_i%></p>
               
               <p>Total Expense: <b><%=tfare%></b></p>
               <br />
@@ -35,20 +35,27 @@
   <%i+=1%>
   <%end%>
   </div>
-<h2>Luxurious Hotel Packages</h2>
+<h2 style="font-family:MV Boli;">Luxurious Hotel Packages</h2>
 <hr />
 <%i=0%>
 <div class="row">
 <%while i<hot.length%>
     <%j=Travel.count%>
 <%while j>0%>
-<% tfare=Travel.find(j).fare.to_i*2+Hotel.find(hot[i]).price.to_i%>
+<% tfare=Travel.find(j).fare.to_i*2+Hotel.find(hot[i]).price.to_i*(Budget.last.to_date-Budget.last.from_date).to_i%>
 <%if tfare<pr %>
         <div class="col s12 m6">
           <div class="card white darken-1">
             <div class="card-content white-text">
               <span class="card-title black-text">Travelling by <b><%=Travel.find(j).name%></b> and staying at <b><%= Hotel.find(hot[i]).name%></b></span>
-              <p class="black-text"><b>50</b> days stay with Rs. <b><%=Hotel.find(hot[i]).price%></b> per day.</p>
+              <p class="black-text"><b><%=(Budget.last.to_date-Budget.last.from_date).to_i%></b> days stay with Rs. <b><%=tfare/(Budget.last.to_date-Budget.last.from_date).to_i%></b> per day.</p>
+              <br />
+              <p class="black-text">Amount spent on Travelling Rs.<%=Travel.find(j).fare.to_i*2%></p>
+              <p class="black-text">Amount spent on Hotel Bookings Rs.<%=Hotel.find(hot[i]).price.to_i%></p>
+              
+              <p class="black-text">Total Expense: <b><%=tfare%></b></p>
+              <br />
+              <p class="black-text"><b>Savings: <%=pr-tfare%></b></p>
             </div>
             <div class="card-action">
               <a href="">Continue with this Package!</a>

@@ -1,6 +1,7 @@
+
 <div class="container">
-<h1>Navs#blog</h1>
-<p>Find me in app/views/navs/blog.html.erb</p>
+<h1 style="font-family:MV Boli;">Travel Companion</h1>
+<p>Tell me about your next journey</p>
 <%= form_for Budget.new do |f| %>
    <div class="field">
     <%= f.label :from_date, "From Date" %><br>
@@ -20,7 +21,7 @@
     <%= f.text_field :budgetprice %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit",class: "btn waves-effect waves-light" %>
   </div>
 <% end %>
 </div>

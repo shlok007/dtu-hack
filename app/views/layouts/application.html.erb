@@ -1,40 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Infocentre</title>
+  <title>YatraAnywhere</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-  <nav class="black">
-        <div class="nav-wrapper">
-          <ul>
-            <li class="center"><b><%= link_to "INFORMATION CENTRE",root_path%></b></li>  
-            <li><%= link_to "Dashboard",root_path%></li>
-            <li><%= link_to "Blog",blog_path%></li>
-            <li><%= link_to "About Us",about_us_path%></li>
-            <li class="right">
+<nav class="white " role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" class="brand-logo"><%= image_tag ("logo.png")%></a>
+      <ul class="right hide-on-med-and-down black-text">
+                    <li class="right black-text">
               <%if user_signed_in? %>
                 <b><%= current_user.email %></b>
               <%end%>
             </li>
             <%if !(user_signed_in?) %>
-            <li class="right"><%= link_to "Sign In",new_user_session_path%></li>
+            <li class="right black-text"><%= link_to "Sign In",new_user_session_path%></li>
             <%else%>
-            <li class="right"><%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
+            <li class="right black-text"><%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
             </li>
             <%end%>
-          </ul>
-        </div>
+            <li class="black-text"><%=link_to "Contact Us", about_us_path %></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>    </div>
   </nav>
 </head>
 <body>
   <div class="center">
+    <br />
   <p class="notice red-text"><%= notice %></p>
   <p class="alert red-text"><%= alert %></p>
-  <div class="">
+  <div class="center">
+    <br />
 <%= yield %>
 </div>
+<br />
+<br />
+<footer class="page-footer teal" >
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text" style="font-family:MV Boli;">Company Bio</h5>
+          <p class="grey-text text-lighten-4" style="font-family:MV Boli;">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12 left">
+          <h5 class="white-text" style="font-family:MV Boli;">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!" style="font-family:MV Boli;"> <i class="tiny material-icons">contact_phone</i> Contact Us</a></li>
+            <li><a class="white-text" href="#!" style="font-family:MV Boli;"> <i class="tiny material-icons">perm_identity</i> Privacy Policy</a></li>
+            <li><a class="white-text" href="#!" style="font-family:MV Boli;"> <i class="tiny material-icons">assignment</i> Disclaimer</a></li>
+            <li><a class="white-text" href="#!" style="font-family:MV Boli;"> <i class="tiny material-icons">insert_chart</i> About Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      </div>
+    </div>
+  </footer>
+
 </div>
 </body>
 </html>

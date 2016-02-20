@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'budgets/budget_page'
+  get 'budgets/budget_page', :as => :budgetty
   resources :budgets
   devise_for :users
   
   get 'navs/packages', :as => :package
   get 'navs/blog', :as => :blog
-
   get 'navs/about_us', :as => :about_us
 
   # The priority is based upon order of creation: first created -> highest priority.
