@@ -7,7 +7,6 @@ class NavsController < ApplicationController
   def blog
     Budget.create[:params_id]
   end
-
   def about_us
   end
   def follow(notifid)

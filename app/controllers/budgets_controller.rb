@@ -8,7 +8,7 @@ class BudgetsController < ApplicationController
     else
       flash[:alert] = "Contact not saved!"
     end
-    redirect_to root_path
+    redirect_to package_path
   end
 
   def destroy

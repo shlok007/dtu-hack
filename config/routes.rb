@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'budgets/budget_page'
   resources :budgets
   devise_for :users
-    get 'navs/packages'
-
+  
+  get 'navs/packages', :as => :package
   get 'navs/blog', :as => :blog
 
   get 'navs/about_us', :as => :about_us
