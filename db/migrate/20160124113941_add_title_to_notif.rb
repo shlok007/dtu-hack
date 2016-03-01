@@ -1,5 +1,5 @@
-class AddTitleToNotif < ActiveRecord::Migration
+class AddTitleToNotifs < ActiveRecord::Migration
   def change
-  	add_column :Notif,:title, :string
+  	add_column :notifs,:title, :string
   end
 end

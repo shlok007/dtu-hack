@@ -1,5 +1,5 @@
 class AddTagToNotifs < ActiveRecord::Migration
   def change
-  	add_column :Notif, :tag, :string
+  	add_column :notifs, :tag, :string
   end
 end

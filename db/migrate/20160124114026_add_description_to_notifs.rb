@@ -1,5 +1,5 @@
 class AddDescriptionToNotifs < ActiveRecord::Migration
   def change
-  	add_column :Notif, :description, :string
+  	add_column :notifs, :description, :string
   end
 end
